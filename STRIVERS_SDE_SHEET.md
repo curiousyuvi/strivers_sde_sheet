@@ -40,3 +40,41 @@
     }
   }
   ```
+  <details>
+  <summary>Code :</summary>
+  <br>
+  <code class="language-pascal">
+  void solve()
+  {
+    int i, j, n, m;
+    cin >> n >> m;
+    ll arr[n][m];
+
+    fo(i, n)
+    {
+        fo(j, m)
+        {
+            cin >>
+                arr[i][j];
+            if (arr[i][j] == 0)
+            {
+                arr[0][j] = -1;
+                arr[i][0] = -1;
+            }
+        }
+    }
+
+    fo(i, n)
+    {
+        fo(j, m)
+        {
+            if (arr[0][j] == -1 || arr[i][0] == -1)
+                cout << 0 << " ";
+            else
+                cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+  }
+  </code>
+  </details>
