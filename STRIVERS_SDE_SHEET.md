@@ -106,32 +106,15 @@
   
   
       ```c++
-      vector<vector<int>> generate(int numRows) {
-        vector<vector<int>> pt;
-        pt.push_back(vector<int>());
-        pt[0].push_back(1);
+      vector<int> getRow(int rowIndex) {
+        vector<int> temp={1};
+        for(int i=1;i<=rowIndex;i++){
+           long long newTerm = (((long long)temp.back())*((long long)(rowIndex-i+1)))/i;
+           temp.push_back(newTerm);
+        }
         
-        if(numRows==1){
-            return pt;
-        }else{
-            pt.push_back(vector<int>());
-            pt[1].push_back(1);
-            pt[1].push_back(1);
-            
-            for(int i=3;i<=numRows;i++){
-                pt.push_back(vector<int>());
-                pt[i-1].push_back(1);
-                
-                for(auto it=pt[i-2].begin();it!=(pt[i-2].end()-1);it++){
-                    int sum = *it + *(it+1);
-                    pt[i-1].push_back(sum);
-                }
-                
-                pt[i-1].push_back(1);
-            }
-            
-            return pt;
-        }
-        }
+        return temp;
+        
+      }
       ```
     </details>
