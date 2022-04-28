@@ -55,3 +55,83 @@
    }
   ```
   </details>
+  
+- **Pascal's Triangle** :
+  - **1st type** : Print the element on `rth` row and `cth` column 
+    - print  <sup>(r-1)</sup> C <sub>(c-1)</sub>
+  
+  - **2nd type** : Print the whole triangle till `rth` row
+    - create a `vector<vector<int>>` and every time push a new vector with 1st and last element as 1, and middle elemnts as pair sum of previous vector
+    <details>
+    <summary>Code :</summary>
+    <br>
+  
+  
+    ```c++
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> pt;
+        pt.push_back(vector<int>());
+        pt[0].push_back(1);
+        
+        if(numRows==1){
+            return pt;
+        }else{
+            pt.push_back(vector<int>());
+            pt[1].push_back(1);
+            pt[1].push_back(1);
+            
+            for(int i=3;i<=numRows;i++){
+                pt.push_back(vector<int>());
+                pt[i-1].push_back(1);
+                
+                for(auto it=pt[i-2].begin();it!=(pt[i-2].end()-1);it++){
+                    int sum = *it + *(it+1);
+                    pt[i-1].push_back(sum);
+                }
+                
+                pt[i-1].push_back(1);
+            }
+            
+            return pt;
+        }
+      }
+    ```
+  </details>
+      
+  - **3rd type**: Print the rth row
+      - here we will use nCr approach but smartly, we know we can calculate rC1 = rC0 * r / 1
+      <details>
+      <summary>Code :</summary>
+      <br>
+  
+  
+      ```c++
+      vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> pt;
+        pt.push_back(vector<int>());
+        pt[0].push_back(1);
+        
+        if(numRows==1){
+            return pt;
+        }else{
+            pt.push_back(vector<int>());
+            pt[1].push_back(1);
+            pt[1].push_back(1);
+            
+            for(int i=3;i<=numRows;i++){
+                pt.push_back(vector<int>());
+                pt[i-1].push_back(1);
+                
+                for(auto it=pt[i-2].begin();it!=(pt[i-2].end()-1);it++){
+                    int sum = *it + *(it+1);
+                    pt[i-1].push_back(sum);
+                }
+                
+                pt[i-1].push_back(1);
+            }
+            
+            return pt;
+        }
+        }
+      ```
+    </details>
