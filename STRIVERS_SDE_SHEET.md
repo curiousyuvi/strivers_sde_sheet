@@ -168,7 +168,7 @@
         ```
         </details>
         
-- Maximum Subarray:
+- **Maximum Subarray**:
   - Using Kandane's Algorithm
   - suppose you have localMaxSubArray ending at previous index
   - then the localMaxSubArray for current index will be `max(localMaxSubArray+arr[i] , arr[i])`
@@ -257,7 +257,7 @@
   ```
   </details>  
 
-- Best Time to Buy and Sell Stock [LeetCode Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+- **Best Time to Buy and Sell Stock**
   - keep track of the `minOnLeft` and `maxProfit`
   - in each traversal if `arr[i]` is less than `minOnLeft` update it or else update `maxProfit` as `max(maxProfit,minOnLeft-arr[i])`
    <details>
