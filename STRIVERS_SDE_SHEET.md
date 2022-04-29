@@ -120,10 +120,10 @@
     </details>
 
 - **Next Permutaion** :
-        - find the first element from last that holds `arr[i] < arr[i+1]`, take its index in k
-        - then, find the first element from last that is `arr[i] > arr[k]`, call it j (do this only if k exists)
-        - then, swap `arr[k]` and `arr[j]` do this only if `k!=-1` or k exists)
-        - then, reverse all the elemnts in the right of `k` (do this only if k exists, else reverse whole arr)
+  - find the first element from last that holds `arr[i] < arr[i+1]`, take its index in k
+  - then, find the first element from last that is `arr[i] > arr[k]`, call it j (do this only if k exists)
+  - then, swap `arr[k]` and `arr[j]` do this only if `k!=-1` or k exists)
+  - then, reverse all the elemnts in the right of `k` (do this only if k exists, else reverse whole arr)
         <details>
         <summary>Code :</summary>
         <br>
