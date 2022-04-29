@@ -168,8 +168,11 @@
         ```
         </details>
         
-- **Maximum Subarray**:
+- Maximum Subarray:
   - Using Kandane's Algorithm
+  - suppose you have localMaxSubArray ending at previous index
+  - then the localMaxSubArray for current index will be `max(localMaxSubArray+arr[i] , arr[i])`
+  - also keep track of globalMaxSubarray
   <details>
   <summary>Code :</summary>
   <br>
@@ -253,3 +256,31 @@
     }
   ```
   </details>  
+
+- Best Time to Buy and Sell Stock [LeetCode Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+  - keep track of the `minOnLeft` and `maxProfit`
+  - in each traversal if `arr[i]` is less than `minOnLeft` update it or else update `maxProfit` as `max(maxProfit,minOnLeft-arr[i])`
+   <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+      int maxProfit(vector<int>& prices) {
+        int n= prices.size();
+        
+        int minI=0, maxProfit=0;
+        
+        for(int i=0;i<n;i++){
+            if(prices[i]<prices[minI])
+            {
+                minI=i;
+            }
+            
+            maxProfit= max(maxProfit,prices[i]-prices[minI]);
+        }
+        
+        return maxProfit;
+    }
+  ```
+  </details> 
