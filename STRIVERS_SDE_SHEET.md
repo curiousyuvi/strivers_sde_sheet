@@ -168,3 +168,33 @@
         ```
         </details>
         
+- **Maximum Subarray**:
+  - Using Kandane's Algorithm
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+  int maxSubArray(vector<int>& nums) {
+        int n=nums.size();
+        
+        int sum=INT_MIN,localSum=0;
+        
+        
+        for(int i=0;i<n;i++){
+            if(nums[i]>=(localSum+nums[i])){
+                localSum=nums[i];
+            }else{
+                localSum+=nums[i];
+            }
+            sum=max(localSum,sum);
+            
+            // cout<<localSum<<" "<<sum<<endl;
+            
+        }
+        
+        return sum;
+    }
+  ```
+  </details>
