@@ -118,3 +118,53 @@
       }
       ```
     </details>
+
+- **Next Permutaion** :
+        - find the first element from last that holds `arr[i] < arr[i+1]`, take its index in k
+        - then, find the first element from last that is `arr[i] > arr[k]`, call it j (do this only if k exists)
+        - then, swap `arr[k]` and `arr[j]` do this only if `k!=-1` or k exists)
+        - then, reverse all the elemnts in the right of `k` (do this only if k exists, else reverse whole arr)
+        <details>
+        <summary>Code :</summary>
+        <br>
+  
+  
+        ```c++
+        void nextPermutation(vector<int>& nums) {
+          int n=nums.size();
+        
+          int k=-1;
+        
+          for(int i=n-2;i>=0;i--){
+            if(nums[i]<nums[i+1])
+            {
+                k=i;
+                break;
+            }
+          }
+        
+        
+        
+          if(k!=-1){
+            int j=-1;
+            
+            for(int i=n-1;i>=k;i--){
+                if(nums[i]>nums[k])
+                {
+                    j=i;
+                    break;
+                }
+            }
+            
+            swap(nums[k],nums[j]);
+            reverse(nums.begin()+k+1,nums.end());
+            
+          }
+          else{
+              reverse(nums.begin(),nums.end());
+          }
+        
+        }
+        ```
+        </details>
+        
