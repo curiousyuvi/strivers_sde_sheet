@@ -198,3 +198,58 @@
     }
   ```
   </details>
+
+- **Sort 0, 1, 2**:
+  - Using 2-pointer approach
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+  void sortColors(vector<int>& nums) {
+        int n=nums.size();
+        int i=0,j=n-1;
+        
+        while(i<j){
+            if(nums[i]!=2){
+                i++;
+                continue;
+            }
+            
+            if(nums[j]==2)
+            {
+                j--;
+                continue;
+            }
+            
+            swap(nums[i],nums[j]);
+            
+        }
+        
+        i=0;
+        for(int k=0;k<n;k++){
+            if(nums[k]==2)
+            {
+                j=k-1;
+                break;
+            }
+        }
+        
+        while(i<j){
+            if(nums[i]!=1){
+                i++;
+                continue;
+            }
+            
+            if(nums[j]!=0)
+            {
+                j--;
+                continue;
+            }
+            
+            swap(nums[i],nums[j]);
+        }
+    }
+  ```
+  </details>  
