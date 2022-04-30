@@ -283,6 +283,8 @@
   ```
   </details>
      
+## Day 2 : Arrays
+     
 - **Rotate 2d Matrix by 90 degree** :
   - create tanspose of matrix
   - reverse each row in transpose
