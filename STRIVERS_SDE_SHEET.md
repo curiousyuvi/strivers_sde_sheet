@@ -11,7 +11,7 @@
   
   
   ```c++
-  void setZeroes(vector<vector<int>>& matrix) {
+    void setZeroes(vector<vector<int>>& matrix) {
         int n=matrix.size();
         int m=matrix[0].size();
         
@@ -124,13 +124,13 @@
   - then, find the first element from last that is `arr[i] > arr[k]`, call it j (do this only if k exists)
   - then, swap `arr[k]` and `arr[j]` do this only if `k!=-1` or k exists)
   - then, reverse all the elemnts in the right of `k` (do this only if k exists, else reverse whole arr)
-        <details>
-        <summary>Code :</summary>
-        <br>
+    <details>
+    <summary>Code :</summary>
+    <br>
   
   
-        ```c++
-        void nextPermutation(vector<int>& nums) {
+    ```c++
+    void nextPermutation(vector<int>& nums) {
           int n=nums.size();
         
           int k=-1;
@@ -142,8 +142,6 @@
                 break;
             }
           }
-        
-        
         
           if(k!=-1){
             int j=-1;
@@ -165,8 +163,8 @@
           }
         
         }
-        ```
-        </details>
+    ```
+    </details>
         
 - **Maximum Subarray**:
   - Using Kandane's Algorithm
