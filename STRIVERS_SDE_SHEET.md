@@ -308,3 +308,56 @@
     }
   ```
   </details>
+
+- **Merge Intervals**:
+  - sort the vector of vector, if not already sorted
+  - keep track of the current mergedVector and traverse the vector
+  - when you meet something that can be merge, merge it
+  - else push the `mergedPair` in an `ans` vector
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+  bool canMerge(vector<int> toMerge,vector<int> mergeIn){
+        
+       return (toMerge.front()<=mergeIn.back() && toMerge.front()>=mergeIn.front()) || (toMerge.back()<=mergeIn.back() && toMerge.back()>=mergeIn.front());
+    }
+    
+    vector<int> merge(vector<int> toMerge,vector<int> mergeIn){
+        vector<int> ans;
+        
+        ans.push_back(min(toMerge.front(),mergeIn.front()));
+        ans.push_back(max(toMerge.back(),mergeIn.back()));
+        
+        return ans;
+        
+    }
+    
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        int n=intervals.size();
+        vector<vector<int>> ans;
+        
+        sort(intervals.begin(),intervals.end());
+        
+        vector<int> temp=intervals[0];
+        
+        for(int i=0;i<n;i++){
+            
+            if(canMerge(intervals[i],temp)){
+              temp = merge(intervals[i],temp);
+            }else{
+                ans.push_back(temp);
+                temp= intervals[i];
+            }
+            
+        }
+        
+        ans.push_back(temp);
+        
+        return ans;
+    
+    }  
+  ```
+  </details>  
