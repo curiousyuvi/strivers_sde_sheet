@@ -408,3 +408,28 @@
     }  
   ```
   </details>    
+
+    
+- **Find Duplicate Number** - 
+    - since the numbers are in range `n`, we use the way of adding `n` to visited numbers as index
+    - when we meet something, greater than `n` it means it repeats, hence we return it
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+  int findDuplicate(vector<int>& nums) {
+        int n=nums.size();
+        
+        for(long long e : nums){
+            if(nums[(e%n)-1]>n)
+                return e%n;
+            else
+                nums[(e%n)-1]+=n;
+        }
+        
+        return nums[n-1];
+    } 
+  ```
+  </details>   
