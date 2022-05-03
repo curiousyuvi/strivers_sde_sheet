@@ -411,6 +411,7 @@
 
     
 - **Find Duplicate Number** - 
+    - **Approach 1** - 
     - since the numbers are in range `n`, we use the way of adding `n` to visited numbers as index
     - when we meet something, greater than `n` it means it repeats, hence we return it
   <details>
@@ -430,6 +431,33 @@
         }
         
         return nums[n-1];
+    } 
+  ```
+    - **Better Approach** (does not affect original array values)- 
+    - Linked List Cycle Method
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+  int findDuplicate(vector<int>& nums) {
+        int slow= nums[0],fast=nums[0];
+        
+        do{
+            slow=nums[slow];
+            fast=nums[nums[fast]];
+        }
+        while(slow!=fast);
+            
+        slow=nums[0];
+        
+        while(slow!=fast){
+            slow=nums[slow];
+            fast=nums[fast];
+        }
+        
+        return slow;
     } 
   ```
   </details>   
