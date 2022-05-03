@@ -461,3 +461,32 @@
     } 
   ```
   </details>   
+
+- **Repeat and Missing Number** - 
+    - by solving eqautions `originalSum - sum = b -a` ---(1) `originalSumOfSqaures - sumOfSquares = b^2 -a^2` ---(2)
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+  vector<int> Solution::repeatedNumber(const vector<int> &A) {
+    long n=A.size();
+    vector<int> ans(2,0);
+    long sum=0,sum2=0;
+    for(long e:A)
+    {
+        sum+=e;
+        sum2+=(e*e);
+    }
+
+    long ab = ((n*(n+1))/2) - sum;
+    long a2b2 = ((n*(n+1)*(2*n+1))/6) - sum2;
+
+    ans[1] = ((a2b2/ab)+ab)/2;
+    ans[0] = ans[1]-ab;
+
+    return ans;
+  }
+  ```
+  </details>
