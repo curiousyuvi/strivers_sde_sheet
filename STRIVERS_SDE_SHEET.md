@@ -490,3 +490,64 @@
   }
   ```
   </details>
+    
+- **Count Inversions** - 
+    - by performing merge sort and smartly calculating inversions while mergin sorted arrays.
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+  long merge(long long *arr1,long long *arr2,int a,int b){
+	long ans =0;
+	
+	int arr[a+b];
+	
+	int i=0,j=0,k=0;
+	while(i<a && j<b){
+		if(arr1[i]<=arr2[j]){
+			arr[k++]=arr1[i++];
+		}
+		else{
+			arr[k++]=arr2[j++];
+			ans+=(a-i);
+		}
+	}
+	
+	while(i<a){
+		arr[k++] = arr1[i++];
+	}
+	
+	while(j<b){
+		arr[k++] = arr2[j++];
+	}
+	
+	for(i=0;i<a+b;i++)
+		arr1[i]=arr[i];
+	
+	return ans;
+  }
+
+  long mergeSort(long long *arr, int n){
+	long ans=0;
+	if(n==1)
+		return 0;
+	
+	int l=0,r=n-1,mid;
+	mid= l + (r-l)/2;
+	
+	ans+=mergeSort((arr+l),ceil(((double)n)/2.0));
+	ans+=mergeSort((arr+mid+1),n/2);
+	ans+=merge((arr+l),(arr+mid+1),ceil(((double)n)/2.0),n/2);
+	
+	return ans;
+  }
+
+  long long getInversions(long long *arr, int n){
+	long ans = mergeSort(arr,n);
+	
+	return ans;
+  }
+  ```
+  </details>
