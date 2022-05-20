@@ -711,3 +711,44 @@
     }
   ```
   </details>	
+
+- **Grid Unique Paths** -
+  - Recursive approach T.C. => O(n*m):
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+    int uniquePaths(int m, int n) {
+        
+        if(m==1 && n==1)
+            return 1;
+        
+        int rightSmallUniquePaths=0;
+        if(m>1){
+            if(dp[m-1][n]!=-1)
+                rightSmallUniquePaths=dp[m-1][n];
+            else
+            {
+               rightSmallUniquePaths=uniquePaths(m-1,n);
+                dp[m-1][n]=rightSmallUniquePaths;
+            }
+        }
+        
+        int downSmallUniquePaths=0;
+        if(n>1){
+            if(dp[m][n-1]!=-1)
+                downSmallUniquePaths=dp[m][n-1];
+            else
+            {
+                downSmallUniquePaths=uniquePaths(m,n-1);
+                dp[m][n-1]=downSmallUniquePaths;
+            }
+        }
+        
+        return rightSmallUniquePaths + downSmallUniquePaths;
+        
+    }
+  ```
+  </details>	
