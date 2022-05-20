@@ -589,8 +589,8 @@
   ```
   </details>
 
-- **Pow(x,n)** - 
-	  - x<sup>n</sup> == (x * x)<sup>n/2</sup> `(n is even)`
+- **Pow(x,n)** -
+  - x<sup>n</sup> == (x * x)<sup>n/2</sup> `(n is even)`
   <details>
   <summary>Code :</summary>
   <br>
