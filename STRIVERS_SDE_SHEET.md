@@ -588,3 +588,33 @@
     }
   ```
   </details>
+
+- **Pow(x,n)** - 
+	  - x<sup>n</sup> == (x * x)<sup>n/2</sup> `(n is even)`
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+	double Pow(double x, long n) {
+        if(n==1)
+            return x;
+        if(n==0)
+            return 1;
+        
+        if(n&1)
+            return x * myPow(x,n-1);
+        else
+            return myPow(x*x,n/2);
+    }
+    
+    double myPow(double x, int n) {
+       if(n>=0)
+           return Pow(x,n);
+        else{
+            return 1.0/Pow(x,abs(n));
+        }
+    }
+  ```
+  </details>	  
