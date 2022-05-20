@@ -644,3 +644,70 @@
     }
   ```
   </details>	
+
+- **Majority Element 2** -
+  - Moore's Voting Algorithm
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+    vector<int> majorityElement(vector<int>& nums) {
+      long el1=LONG_LONG_MAX,el2=LONG_LONG_MAX;
+      int ct1=0,ct2=0,n=nums.size();
+      
+      for(int i=0;i<n;i++){
+          if(el1==((long)nums[i]))
+              ct1++;
+          else if(el2==((long)nums[i]))
+              ct2++;
+          else if(ct1==0)
+          {
+              el1=nums[i];
+              ct1=1;
+          }
+          else if(ct2==0)
+          {
+              el2=nums[i];
+              ct2=1;
+          }
+          else
+          {   
+              ct1--;
+              ct2--;
+          }
+      }
+        
+        
+      vector<int> ans;
+      
+      ct1=0,ct2=0;
+      for(int el:nums){
+        if(el==el1)
+            ct1++;
+        if(el==el2)
+            ct2++;
+      }
+        
+      if(ct1>n/3 && ct2>n/3){
+          if(el1==el2)
+              ans.push_back(el1);
+          else{
+            ans.push_back(el1);
+            ans.push_back(el2);
+              
+          }
+      }
+      else if(ct1>n/3){
+        ans.push_back(el1);
+      }
+      else if(ct2>n/3){
+        ans.push_back(el2);
+      }
+        
+      return ans;
+        
+    }
+  ```
+  </details>	
