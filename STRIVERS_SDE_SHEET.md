@@ -617,4 +617,30 @@
         }
     }
   ```
-  </details>	  
+  </details>
+	  
+- **Majority Element** -
+  - Moore's Voting Algorithm
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+    int majorityElement(vector<int>& nums) {
+       int el=0,ct=0,n=nums.size();
+        
+        for(int i=0;i<n;i++){
+            if(ct==0)
+                el=nums[i];
+            
+            if(el==nums[i])
+                ct++;
+            else
+                ct--;
+        }
+        
+        return el;
+    }
+  ```
+  </details>	
