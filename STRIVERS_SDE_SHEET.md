@@ -551,3 +551,40 @@
   }
   ```
   </details>
+	  
+## Day 3 : Arrays
+	  
+- **Search a 2d matrix** - 
+    - `l=0` `r=n*m-1` element => `matrix[mid/m][mid%m]`
+  <details>
+  <summary>Code :</summary>
+  <br>
+  
+  
+  ```c++
+      bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int n=matrix.size();
+        int m=matrix[0].size();
+        
+        int l=0,r=m*n-1,mid;
+        
+        while(l<=r){
+            mid=l+(r-l)/2;
+            
+            if(matrix[mid/m][mid%m]>target){
+                r=mid-1;
+            }
+            else if(matrix[mid/m][mid%m]<target){
+                l=mid+1;
+            }
+            else{
+                break;
+            }
+        }
+        
+        return matrix[mid/m][mid%m]==target;
+        
+        
+    }
+  ```
+  </details>
