@@ -714,12 +714,12 @@
 
 - **Grid Unique Paths** -
   - Recursive approach T.C. => O(n*m):
-  <details>
-  <summary>Code :</summary>
-  <br>
+    <details>
+    <summary>Code :</summary>
+    <br>
   
   
-  ```c++
+    ```c++
     int uniquePaths(int m, int n) {
         
         if(m==1 && n==1)
@@ -750,8 +750,8 @@
         return rightSmallUniquePaths + downSmallUniquePaths;
         
     }
-  ```
-  </details>	
+    ```
+    </details>	
   
   - Combinatrics approach T.C. => O(n) or O(m):
     - just smartly calculate (n+m-2)C(m-1) or (n+m-2)C(n-1)
