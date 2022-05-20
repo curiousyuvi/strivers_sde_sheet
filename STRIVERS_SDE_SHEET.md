@@ -753,14 +753,14 @@
   ```
   </details>	
   
-- Combinatrics approach T.C. => O(n) or O(m):
-  - just smartly calculate (n+m-2)C(m-1) or (n+m-2)C(n-1)
-  <details>
-  <summary>Code :</summary>
-  <br>
+  - Combinatrics approach T.C. => O(n) or O(m):
+    - just smartly calculate (n+m-2)C(m-1) or (n+m-2)C(n-1)
+    <details>
+    <summary>Code :</summary>
+    <br>
   
   
-  ```c++
+    ```c++
     int uniquePaths(int m, int n) {
         double num=1,den=1;
         for(int i=m;i<=m+n-2;i++)
@@ -771,5 +771,5 @@
         
         return (int)(num/den);
     }
-  ```
-  </details>	
+    ```
+    </details>	
